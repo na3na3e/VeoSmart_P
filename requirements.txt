@@ -1,9 +1,6 @@
 streamlit==1.25.0
-opencv-python-headless
-pyyaml
+opencv-python-headless==4.8.0.74
 torch==2.0.1
-Torchvision==0.15.2
-psutil
-Pillow
-tqdm
-Ultralytiques==8.0.139
+torchvision==0.15.2
+tqdm==4.65.0
+ultralytics==8.0.139

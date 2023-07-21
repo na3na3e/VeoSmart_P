@@ -4,3 +4,5 @@ pyyaml
 torch
 torchvision
 psutil
+Pillow
+tqdm

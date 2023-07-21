@@ -1,3 +1,4 @@
+python==3.9
 streamlit==1.25.0
 opencv-python-headless
 pyyaml
@@ -7,3 +8,4 @@ psutil
 Pillow
 tqdm
 ultralytics
+

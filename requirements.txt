@@ -6,3 +6,4 @@ torchvision
 psutil
 Pillow
 tqdm
+ultralytics

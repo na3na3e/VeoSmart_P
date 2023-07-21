@@ -245,7 +245,7 @@ def pg1():
 
     # Using pytorch hub inference of Yolov5 for loading model
     torch.hub._validate_not_a_forked_repo = lambda a, b, c: True
-    model = torch.hub.load('ultralytics/yolov5', 'custom', path=r"model/dam_det.pt", force_reload=True)
+    model = torch.hub.load('ultralytics/yolov5', 'custom', path=r"dam_det.pt", force_reload=True)
     model.conf = 0.5
     upload(model)
     pass

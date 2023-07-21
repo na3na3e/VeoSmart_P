@@ -1,0 +1,48 @@
+import json
+import cv2
+import csv
+
+# Chargement du modèle entraîné
+model = load_model('dam_det.pt')  # Assurez-vous d'importer et de charger correctement votre modèle
+
+# Chemin vers le dossier contenant les images de test
+images_folder = 'chemin/vers/votre/dossier/images_test/'
+
+# Chemin vers le fichier JSON contenant les annotations des dommages dans les images
+annotations_file = 'chemin/vers/votre/fichier/annotations.json'
+
+# Chemin vers le fichier CSV pour enregistrer les résultats
+results_file = 'chemin/vers/votre/fichier/resultats.csv'
+
+# Charger les annotations à partir du fichier JSON
+with open(annotations_file, 'r') as file:
+    annotations = json.load(file)
+
+# Ouvrir le fichier CSV pour écrire les résultats
+with open(results_file, 'w', newline='') as csvfile:
+    writer = csv.writer(csvfile)
+    writer.writerow(['Image', 'Précision'])  # Écrire l'en-tête du fichier CSV
+
+    # Boucle sur chaque image de test
+    for image_name, image_annotations in annotations.items():
+        # Chemin vers l'image
+        image_path = images_folder + image_name
+        
+        # Charger l'image avec OpenCV
+        image = cv2.imread(image_path)
+        
+        # Prétraitement de l'image si nécessaire (redimensionnement, normalisation, etc.)
+        # ...
+        
+        # Prédiction des dommages avec le modèle
+        predictions = model.predict(image)  # Assurez-vous d'adapter cette ligne en fonction de votre modèle
+        
+        # Comparaison des prédictions avec les annotations réelles
+        true_annotations = image_annotations['annotations']
+        # ... Effectuez la comparaison des prédictions avec les annotations réelles et calculez le taux de précision
+        
+        # Écrire les résultats dans le fichier CSV
+        writer.writerow([image_name, precision])  # Remplacez "precision" par le taux de précision réel obtenu
+    
+    print("Les résultats ont été enregistrés avec succès dans le fichier CSV.")
+
